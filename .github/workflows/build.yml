@@ -27,6 +27,8 @@ jobs:
           distribution: temurin
           java-version: 17
       - run: pip install scons
+      - name: Patch Vulkan call
+        run: sed -i 's/free_vulkan_global_context();/;/' platform/android/display_server_android.cpp
       - name: Install the NDK Godot wants
         run: |
           NDK=$(grep -A2 "def get_ndk_version" platform/android/detect.py | grep -oE '[0-9]+\.[0-9]+\.[0-9]+' | head -1)
