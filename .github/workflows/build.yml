@@ -3,15 +3,17 @@ on:
   workflow_dispatch:
     inputs:
       godot_ref:
-        default: "4.8-beta1"
+        default: "4.8-beta3"
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      GODOT_VERSION_STATUS: beta3
     steps:
       - uses: actions/checkout@v4
         with:
           repository: godotengine/godot
-          ref: ${{ inputs.godot_ref }}
+          ref: c51ff06e8836a70ea905701c081bf94124dcd6ce
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
