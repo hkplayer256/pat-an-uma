@@ -1,14 +1,22 @@
-name: Build Android template
-on:
-  workflow_dispatch:
-    inputs:
-      godot_ref:
-        default: "4.8-beta3"
+name: Build Custom Godot Template for arm64-v8a
+on: workflow_dispatch
 jobs:
   build:
     runs-on: ubuntu-latest
     env:
       GODOT_VERSION_STATUS: beta3
+      FLAGS: >-
+        disable_3d=yes disable_advanced_gui=yes
+        module_text_server_adv_enabled=no module_text_server_fb_enabled=yes
+        vulkan=no use_volk=no openxr=no deprecated=no minizip=no
+        module_camera_enabled=no module_csg_enabled=no module_gridmap_enabled=no
+        module_navigation_3d_enabled=no module_raycast_enabled=no module_vhacd_enabled=no
+        module_meshoptimizer_enabled=no module_mobile_vr_enabled=no module_webxr_enabled=no
+        module_openxr_enabled=no module_upnp_enabled=no module_webrtc_enabled=no
+        module_websocket_enabled=no module_enet_enabled=no module_multiplayer_enabled=no
+        module_theora_enabled=no module_gltf_enabled=no module_fbx_enabled=no
+        module_tga_enabled=no module_bmp_enabled=no module_dds_enabled=no
+        module_hdr_enabled=no module_tinyexr_enabled=no module_ktx_enabled=no
     steps:
       - uses: actions/checkout@v4
         with:
@@ -26,9 +34,9 @@ jobs:
           yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "ndk;$NDK"
           echo "ANDROID_NDK_ROOT=$ANDROID_HOME/ndk/$NDK" >> $GITHUB_ENV
       - name: Build release lib
-        run: scons platform=android arch=arm64 target=template_release optimize=size_extra lto=full debug_symbols=no disable_3d=yes disable_advanced_gui=yes module_text_server_adv_enabled=no module_text_server_fb_enabled=yes
+        run: scons platform=android arch=arm64 target=template_release optimize=size_extra lto=full debug_symbols=no $FLAGS
       - name: Build debug lib
-        run: scons platform=android arch=arm64 target=template_debug disable_3d=yes disable_advanced_gui=yes module_text_server_adv_enabled=no module_text_server_fb_enabled=yes
+        run: scons platform=android arch=arm64 target=template_debug $FLAGS
       - name: Make the APK templates
         run: cd platform/android/java && ./gradlew generateGodotTemplates
       - uses: actions/upload-artifact@v4
