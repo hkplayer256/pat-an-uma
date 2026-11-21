@@ -7,6 +7,7 @@ An Umamusume Fan Game where the main gameplay is patting your favorite Umamusume
 Developed by HKPlayer256 (Oguri Peak?)
 
 Original Game: Umamusume: Pretty Derby
+
 Original Owners: Cygames
 
 ### DISCLAIMER
