@@ -1,0 +1,37 @@
+name: Build Android template
+on:
+  workflow_dispatch:
+    inputs:
+      godot_ref:
+        default: "4.8-beta1"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: godotengine/godot
+          ref: ${{ inputs.godot_ref }}
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+      - run: pip install scons
+      - name: Install the NDK Godot wants
+        run: |
+          NDK=$(grep -A2 "def get_ndk_version" platform/android/detect.py | grep -oE '[0-9]+\.[0-9]+\.[0-9]+' | head -1)
+          echo "Using NDK $NDK"
+          yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "ndk;$NDK"
+          echo "ANDROID_NDK_ROOT=$ANDROID_HOME/ndk/$NDK" >> $GITHUB_ENV
+      - name: Build release lib
+        run: scons platform=android arch=arm64 target=template_release optimize=size_extra lto=full debug_symbols=no disable_3d=yes disable_advanced_gui=yes module_text_server_adv_enabled=no module_text_server_fb_enabled=yes
+      - name: Build debug lib
+        run: scons platform=android arch=arm64 target=template_debug disable_3d=yes disable_advanced_gui=yes module_text_server_adv_enabled=no module_text_server_fb_enabled=yes
+      - name: Make the APK templates
+        run: cd platform/android/java && ./gradlew generateGodotTemplates
+      - uses: actions/upload-artifact@v4
+        with:
+          name: android-templates
+          path: |
+            bin/android_release.apk
+            bin/android_debug.apk
