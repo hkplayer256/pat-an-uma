@@ -2,13 +2,17 @@
 
 An Umamusume Fan Game where the main gameplay is patting your favorite Umamusume 
 
-### Credits
+### Gameplay
+
+### Credits and Details
 
 Developed by HKPlayer256 (Oguri Peak?)
 
 Original Game: Umamusume: Pretty Derby
 
 Original Owners: Cygames
+
+Made with Godot Engine
 
 ### DISCLAIMER
 
