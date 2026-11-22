@@ -1,10 +1,17 @@
+<div align="center">
+
 # pat-an-uma
 
 <img width="200" height="200" alt="Untitled124" src="https://github.com/user-attachments/assets/89cb67b6-b7ba-421a-9d34-c6fb7444daaa" />
 
+![Godot](https://img.shields.io/badge/Godot-4.8-blue)
+![Platform](https://img.shields.io/badge/Platform-Android-green)
+
 An Umamusume Fan Game where the main gameplay is patting your favorite Umamusume 
 
-### Gameplay
+</div>
+
+# Gameplay
 
 <img width="200" height="400" alt="Screenshot_20261122-112558" src="https://github.com/user-attachments/assets/daa8f8fe-aebe-4768-9a65-fc6f8d3980cf" />
 
@@ -18,7 +25,7 @@ Main Gameplay
 
 Currently the game has 10 Characters to choose from
 
-### Credits and Details
+# Credits and Details
 
 This is a hobby project
 developed by HKPlayer256 (Oguri Peak?).
@@ -28,16 +35,12 @@ Original Game: Umamusume: Pretty Derby
 
 Original Owners: Cygames
 
-Made with:
-
-<img width="100" height="120" alt="Untitled123" src="https://github.com/user-attachments/assets/0c665896-1279-46fc-881a-83e8f971d2f3" />
-
-### DISCLAIMER
+# DISCLAIMER
 
 I do not claim of any copyrighted material (including characters, assets, music, etc...) all rights belong to their respective owners.
 
 This project is not intended for monetization and is distributed for non-commercial purposes
 
-### Note
+# Notes
 
-This game updates every 1-2 weeks (dont expect to be quick)
+This game updates every 1-2 weeks (dont expect it to be quick)
