@@ -1,0 +1,20 @@
+name: Character request
+description: Request a character (free fan project, no payments)
+body:
+  - type: input
+    id: character
+    attributes:
+      label: Character name (English / Japanese)
+    validations:
+      required: true
+  - type: checkboxes
+    id: rules
+    attributes:
+      label: Please confirm
+      options:
+        - label: I'm not attaching or linking any game files, models, or textures.
+          required: true
+        - label: I'm not offering payment or donations for this request.
+          required: true
+        - label: I understand there's no guarantee or timeline.
+          required: true
