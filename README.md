@@ -43,6 +43,8 @@ This project is not intended for monetization and is distributed for non-commerc
 
 # Notes
 
-For ideas See [CONTRIBUTING.md](docs/CONTRIBUTING.md) for the rules, including **no paid requests**.
+Want to see our Project Roadmap? See [ROADMAP.mp](.github/docs/ROADMAP.md)
+
+For ideas See [CONTRIBUTING.md](.github/docs/CONTRIBUTING.md) for the rules, including **no paid requests**.
 
 This game updates every 1-2 weeks (dont expect it to be quick)
