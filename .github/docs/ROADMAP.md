@@ -2,7 +2,7 @@
 
 Im planning to add new features in this project / game
 
-Plans for each update:
+### Plans for each update:
 
 <details>
 <summary>First Update</summary>
